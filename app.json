@@ -1,7 +1,7 @@
 {
-  "name": "Node.js Getting Started",
-  "description": "A barebones Node.js app using Express 4",
-  "repository": "https://github.com/heroku/node-js-getting-started",
-  "logo": "http://node-js-sample.herokuapp.com/node.svg",
-  "keywords": ["node", "express", "static"]
+  "name": "Black Market Battles",
+  "description": "A simple betting game with a tug-of-war element for the League of Legends API Challenge #2",
+  "repository": "https://git.heroku.com/blackmarketbattles.git",
+  "logo": "http://blackmarketbattles.herokuapp.com/node.svg",
+  "keywords": ["node", "express", "LOL", "League", "Legends", "API"]
 }

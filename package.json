@@ -1,26 +1,31 @@
 {
-  "name": "node-js-getting-started",
-  "version": "0.1.4",
-  "description": "A sample Node.js app using Express 4",
+  "name": "Black Market Battles",
+  "version": "0.0.1",
+  "description": "Entry for LOL API Challenge #2",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
   "dependencies": {
     "ejs": "^2.3.1",
-    "express": "~4.9.x"
+    "express": "~4.9.x",
+    "ws": "~0.7.2",
+    "redis": "~0.12.1",
+    "node-uuid": "~1.4.3"
   },
   "engines": {
     "node": "0.12.2"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/heroku/node-js-getting-started"
+    "url": "https://git.heroku.com/blackmarketbattles.git"
   },
   "keywords": [
-    "node",
-    "heroku",
-    "express"
+    "LOL",
+    "League",
+    "Legends",
+    "Brian Reinhart"
   ],
+  "author": "Brian Reinhart",
   "license": "MIT"
 }
