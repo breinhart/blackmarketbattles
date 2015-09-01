@@ -1,36 +1,21 @@
-# node-js-getting-started
+# Black Market Battles
 
-A barebones Node.js app using [Express 4](http://expressjs.com/).
+Black Market Battles is my entry into the League of Legends API challenge.  I was a bit rushed for time, so there is a lot I would like to do with this site.  But first off, here is how you play.
 
-This application supports the [Getting Started with Node on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs) article - check it out.
+## Tutorial
+- First off, create a name for yourself on the home page.
+- Once you are in the lobby, you can host a game or join another game.  Hopefully this site will just be booming with hosted rooms :P
+- Now that you are in a game, the fun begins!
+- - Betting phase!  Try your best guess at which team you think won the matchup.  Put a wager on it if you are confident.
+- - Battle phase!  Use your new found Kraken to attack your opponent or heal yourself.  You only get one action per turn!
+- - Rinse and Repeat.  Simple, right?
 
-## Running Locally
+### More coming soon!!
 
-Make sure you have [Node.js](http://nodejs.org/) and the [Heroku Toolbelt](https://toolbelt.heroku.com/) installed.
+- Champion Selection - choose a champ to play as
+- Use your champion abilities instead of simple attack/heal
+- Buy items with your kraken to increase your skills and auto attacks
+- Better UI - If you want to help me with this, please contact me!
 
-```sh
-$ git clone git@github.com:heroku/node-js-getting-started.git # or clone your own fork
-$ cd node-js-getting-started
-$ npm install
-$ npm start
-```
-
-Your app should now be running on [localhost:5000](http://localhost:5000/).
-
-## Deploying to Heroku
-
-```
-$ heroku create
-$ git push heroku master
-$ heroku open
-```
-
-## Documentation
-
-For more information about using Node.js on Heroku, see these Dev Center articles:
-
-- [Getting Started with Node.js on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs)
-- [Heroku Node.js Support](https://devcenter.heroku.com/articles/nodejs-support)
-- [Node.js on Heroku](https://devcenter.heroku.com/categories/nodejs)
-- [Best Practices for Node.js Development](https://devcenter.heroku.com/articles/node-best-practices)
-- [Using WebSockets on Heroku with Node.js](https://devcenter.heroku.com/articles/node-websockets)
+### Contact Me!
+[Email is the best way to contact me.](mailto:brian@cocoa-mag.com)
