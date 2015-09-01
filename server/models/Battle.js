@@ -1,5 +1,5 @@
 (function() {
-    var statics = require('./static.js');
+    var statics = require('./Static.js');
 
     var Battle = function(config) {
         this.defaults = {
