@@ -262,15 +262,7 @@
                     <h5 ng-show="vm.errorMsg.length > 0" class="text-danger">{{vm.errorMsg}}</h5>
                 </div>
             </div>
-            <div class="row-spacer"></div>
-            <div class="row text-center">
-                <ul class="list-group">
-                    <li ng-repeat="action in vm.battle.attackLog track by $index | orderBy: -1*$index" class="list-group-item"
-                        ng-class="{'list-group-item-danger': action.type == 'attack'
-                        ,'list-group-item-success': action.type == 'heal'
-                        ,'list-group-item-info': action.type == 'info'}">{{action.description}}</li>
-                </ul>
-            </div>
+            
         </div>
         <div ng-show="vm.battle.state == 'gameover'" class="row text-center" >
             <div ng-show="vm.battle.me.isWinner == true">
@@ -282,6 +274,7 @@
                 <h3>Shiver me timbers! Better luck next time, lad.</h3>
             </div>
         </div>
+        <div class="row-spacer"></div>
         <div class="row text-center">
             <ul class="list-group">
                 <li ng-repeat="action in vm.battle.attackLog track by $index | orderBy: -1*$index" class="list-group-item"
