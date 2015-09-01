@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <base href="/index.html">
+    <!--link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,600' rel='stylesheet' type='text/css'-->
+    <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/main.css" />
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-route.min.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-animate.min.js"></script>
+    <script type="text/javascript" src="socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="js/includes/socket.min.js"></script>
+    <script type="text/javascript" src="js/includes/uuid.js"></script>
+    <script type="text/javascript" src="js/client.js"></script>
+    <script type="text/javascript" src="js/services/Services.js"></script>
+    <script type="text/javascript" src="js/lobby/lobby_controller.js"></script>
+    <script type="text/javascript" src="js/battle/battle_controller.js"></script>
+
+    <title>Black Market Battles</title>
+</head>
+
+<body ng-app="app">
+<div ng-controller="MainController as main">
+    <nav class="navbar navbar-default navbar-static-top navbar-inverse">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav">
+                <li class="active">
+                    <a href="/"><span class="glyphicon glyphicon-home"></span> Home</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="/About"><span class="glyphicon glyphicon-info-sign"></span> About</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="view-animate-container container-fluid transparent" >
+        <div ng-view class="view-animate"></div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,294 @@
+<div class="jumbotron" ng-show="vm.battle.state == 'created'">
+    <h1>Wait'n on yer opponent</h1>
+    <h3>Tell yer matey to weigh anchor or ya crush he barnacles!</h3>
+</div>
+<div class="jumbotron" ng-show="vm.battle.state != 'created'">
+    <div class="battle-container bg-black">
+        <div class="row">
+            <div class="col-md-3 player-container">
+                <h3 class="player-name text-orange" ng-bind="vm.battle.me.name"></h3>
+                <div class="row player-property-row">
+                    <div class="col-xs-8 player-property-label">
+                        <h4 class=" text-light-gray">Kraken</h4>
+                    </div>
+                    <div class="col-xs-4 player-property">
+                        <h4 class=" text-orange" ng-bind="vm.battle.me.kraken"></h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-8 player-property-label">
+                        <h4 class="text-light-gray">Health</h4>
+                    </div>
+                    <div class="col-xs-4 player-property">
+                        <h4 class="text-orange" ng-bind="vm.battle.me.health"></h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 round-details text-orange">
+                <h3 class="text-center text-orange">Round {{vm.battle.currentRound}}</h3>
+                <h3 class="text-center text-orange" ng-show="vm.battle.state != 'gameover'">{{vm.timeRemaining}}s</h3>
+            </div>
+            <div class="col-md-3 player-container">
+                <h3 class="player-name text-orange" ng-bind="vm.battle.opponent.name"></h3>
+                <div class="row">
+                    <div class="col-xs-8 player-property-label">
+                        <h4 class="text-light-gray">Kraken</h4>
+                    </div>
+                    <div class="col-xs-4 player-property">
+                        <h4 class="text-orange" ng-bind="vm.battle.opponent.kraken"></h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-8 player-property-label">
+                        <h4 class="text-light-gray">Health</h4>
+                    </div>
+                    <div class="col-xs-4 player-property">
+                        <h4 class="text-orange" ng-bind="vm.battle.opponent.health"></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row row-spacer">
+
+        </div>
+        <div ng-show="vm.battle.state == 'betting'">
+            <div class="row text-center" ng-show="vm.betPlaced == false">
+                <h3>Avast, Matey!  Make a wager on which crew won the squabble.</h3>
+                <div class="col-xs-4 col-xs-offset-4">
+                    <div class="form-group ">
+                        <label class="control-label" for="inputBet">Enter ye wager</label>
+                        <div class="input-group bet-input">
+                            <span class="input-group-addon">$</span>
+                            <input type="number" id="inputBet" class="form-control" ng-model="vm.bet">
+                        </div>
+                        <span class="text-danger" ng-show="vm.errorMsg.length > 0">{{vm.errorMsg}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row text-center" ng-show="vm.betPlaced == true">
+                <h3>Yo-ho-ho! Yer bet is placed!  {{vm.bet}} kraken on the plank</h3>
+            </div>
+            <div class="row" ng-show="vm.betPlaced == false">
+                <div class="team-select">
+                    <button ng-click="vm.setWager(100)" class="btn btn-default">Left Team!</button>
+                    <button ng-click="vm.setWager(200)" class="btn btn-default">Right Team!</button>
+                </div>
+            </div>
+            <div class="row row-spacer">
+
+            </div>
+            <div class="row match-container">
+                <div class="col-md-6">
+                    <header>
+                    <div class="team-header">
+                    </div>
+                    </header>
+                    <ul class="team-list-container">
+                        <li class="participant-list-item" ng-repeat="player in vm.battle.match.participants | team:100">
+                            <div class="champion-details">
+                                <div class="champion-icon">
+                                    <img ng-src="{{player.championImage}}"/>
+                                </div>
+                                <div class="champion-spells">
+                                    <div class="spell-icon">
+                                        <img ng-src="{{player.spell1Image}}">
+                                    </div>
+                                    <div class="spell-icon">
+                                        <img ng-src="{{player.spell2Image}}">
+                                    </div>
+                                </div>
+                                <div class="champion-name-container">
+                                    <span>{{player.championName}}</span>
+                                </div>
+                            </div>
+                            <div class="inventory-container">
+                                <div class="item-set-group" >
+                                    <div class="item-set-row">
+                                        <div class="item-icon">
+                                            <div class="no-item" ng-show="player.stats.item0 == 0"></div>
+                                            <img ng-src="{{vm.battle.match.itemUrl + player.stats.item0 + '.png'}}" ng-hide="player.stats.item0 == 0">
+                                        </div>
+                                        <div class="item-icon">
+                                            <div class="no-item" ng-show="player.stats.item1 == 0"></div>
+                                            <img ng-src="{{vm.battle.match.itemUrl + player.stats.item1 + '.png'}}" ng-hide="player.stats.item1 == 0">
+                                        </div>
+                                        <div class="item-icon">
+                                            <div class="no-item" ng-show="player.stats.item2 == 0"></div>
+                                            <img ng-src="{{vm.battle.match.itemUrl + player.stats.item2 + '.png'}}" ng-hide="player.stats.item2 == 0">
+                                        </div>
+                                    </div>
+                                    <div class="">
+                                        <div class="item-icon">
+                                            <div class="no-item" ng-show="player.stats.item3 == 0"></div>
+                                            <img ng-src="{{vm.battle.match.itemUrl + player.stats.item3 + '.png'}}" ng-hide="player.stats.item3 == 0">
+                                        </div>
+                                        <div class="item-icon">
+                                            <div class="no-item" ng-show="player.stats.item4 == 0"></div>
+                                            <img ng-src="{{vm.battle.match.itemUrl + player.stats.item4 + '.png'}}" ng-hide="player.stats.item4 == 0">
+                                        </div>
+                                        <div class="item-icon">
+                                            <div class="no-item" ng-show="player.stats.item5 == 0"></div>
+                                            <img ng-src="{{vm.battle.match.itemUrl + player.stats.item5 + '.png'}}" ng-hide="player.stats.item5 == 0">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="trinket-icon">
+                                    <div class="no-item" ng-show="player.stats.item6 == 0"></div>
+                                    <img ng-src="{{vm.battle.match.itemUrl + player.stats.item6 + '.png'}}" ng-hide="player.stats.item6 == 0">
+                                </div>
+                            </div>
+                            <div class="rank-container" >
+                                <div class="player-rank">
+                                    <!--div class="rank-icon">
+                                        <img src="//ddragon.leagueoflegends.com/cdn/5.16.1/img/item/3361.png">
+                                    </div-->
+                                    <div class="rank-label">
+                                        <span>{{player.highestAchievedSeasonTier}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <header>
+                        <div class="team-header">
+                        </div>
+                    </header>
+                    <ul class="team-list-container">
+                        <li class="participant-list-item" ng-repeat="player in vm.battle.match.participants | team:200">
+                            <div class="champion-details pull-right">
+                                <div class="champion-icon pull-right">
+                                    <img ng-src="{{player.championImage}}"/>
+                                </div>
+                                <div class="champion-spells  pull-right">
+                                    <div class="spell-icon">
+                                        <img ng-src="{{player.spell1Image}}">
+                                    </div>
+                                    <div class="spell-icon">
+                                        <img ng-src="{{player.spell2Image}}">
+                                    </div>
+                                </div>
+                                <div class="champion-name-container pull-right">
+                                    <span>{{player.championName}}</span>
+                                </div>
+                            </div>
+                            <div class="inventory-container pull-right" >
+                                <div class="item-set-group" >
+                                    <div class="item-set-row">
+                                        <div class="item-icon">
+                                            <div class="no-item" ng-show="player.stats.item0 == 0"></div>
+                                            <img ng-src="{{vm.battle.match.itemUrl + player.stats.item0 + '.png'}}" ng-hide="player.stats.item0 == 0">
+                                        </div>
+                                        <div class="item-icon">
+                                            <div class="no-item" ng-show="player.stats.item1 == 0"></div>
+                                            <img ng-src="{{vm.battle.match.itemUrl + player.stats.item1 + '.png'}}" ng-hide="player.stats.item1 == 0">
+                                        </div>
+                                        <div class="item-icon">
+                                            <div class="no-item" ng-show="player.stats.item2 == 0"></div>
+                                            <img ng-src="{{vm.battle.match.itemUrl + player.stats.item2 + '.png'}}" ng-hide="player.stats.item2 == 0">
+                                        </div>
+                                    </div>
+                                    <div class="">
+                                        <div class="item-icon">
+                                            <div class="no-item" ng-show="player.stats.item3 == 0"></div>
+                                            <img ng-src="{{vm.battle.match.itemUrl + player.stats.item3 + '.png'}}" ng-hide="player.stats.item3 == 0">
+                                        </div>
+                                        <div class="item-icon">
+                                            <div class="no-item" ng-show="player.stats.item4 == 0"></div>
+                                            <img ng-src="{{vm.battle.match.itemUrl + player.stats.item4 + '.png'}}" ng-hide="player.stats.item4 == 0">
+                                        </div>
+                                        <div class="item-icon">
+                                            <div class="no-item" ng-show="player.stats.item5 == 0"></div>
+                                            <img ng-src="{{vm.battle.match.itemUrl + player.stats.item5 + '.png'}}" ng-hide="player.stats.item5 == 0">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="trinket-icon">
+                                    <div class="no-item" ng-show="player.stats.item6 == 0"></div>
+                                    <img ng-src="{{vm.battle.match.itemUrl + player.stats.item6 + '.png'}}" ng-hide="player.stats.item6 == 0">
+                                </div>
+                            </div>
+                            <div class="rank-container pull-left" >
+                                <div class="player-rank">
+                                    <!--div class="rank-icon">
+                                        <img src="//ddragon.leagueoflegends.com/cdn/5.16.1/img/item/3361.png">
+                                    </div-->
+                                    <div class="rank-label">
+                                        <span>{{player.highestAchievedSeasonTier}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div ng-show="vm.battle.state == 'betResults'">
+            <div class="row text-center" ng-show="vm.battle.me.betResults.wonLastRound == true">
+                <h3>Shiver me timbers! Yer skill is blinding!</h3>
+                <h4>You claimed {{vm.battle.me.betResults.ammountWon}} kraken in booty!</h4>
+            </div>
+            <div class="row text-center" ng-show="vm.battle.me.betResults.wonLastRound == false">
+                <h3>Avast, Matey, yer luck betray you!</h3>
+                <h4>You lost {{vm.battle.me.betResults.ammountWon}} kraken!</h4>
+            </div>
+            <div class="row text-center">
+                <h3>You will also get {{vm.battle.me.income}} kraken at the start of each round.</h3>
+            </div>
+        </div>
+        <div ng-show="vm.battle.state == 'battle_turn1' || vm.battle.state == 'battle_turn2'">
+            <div class="row text-center">
+                <h2>Battle Phase!!</h2>
+                <h3 ng-show="vm.battle.state == 'battle_turn1'">{{vm.battle.attacker.name}} has been randomly selected to attack first!</h3>
+                <h3 ng-show="vm.battle.state == 'battle_turn2'">{{vm.battle.attacker.name}}'s turn to attack.</h3>
+            </div>
+            <div class="row" ng-show="vm.battle.attacker.id == vm.user.id">
+                <div class="attack-options">
+                    <h3>Select an action or end your turn!</h3>
+                    <div class="list-group">
+                        <a href="#" class="list-group-item" ng-click="vm.attack()">
+                            <span class="badge">2 kraken</span>
+                            Attack yer opponent for 15 damage!
+                        </a>
+                        <a href="#" class="list-group-item" ng-click="vm.heal()">
+                            <span class="badge">5 kraken</span>
+                            Heal yerself fer 20 health points!
+                        </a>
+                        <a href="#" class="list-group-item" ng-click="vm.endTurn()">
+                            End yer Turn!
+                        </a>
+                    </div>
+                    <h5 ng-show="vm.errorMsg.length > 0" class="text-danger">{{vm.errorMsg}}</h5>
+                </div>
+            </div>
+            <div class="row-spacer"></div>
+            <div class="row text-center">
+                <ul class="list-group">
+                    <li ng-repeat="action in vm.battle.attackLog track by $index | orderBy: -1*$index" class="list-group-item"
+                        ng-class="{'list-group-item-danger': action.type == 'attack'
+                        ,'list-group-item-success': action.type == 'heal'
+                        ,'list-group-item-info': action.type == 'info'}">{{action.description}}</li>
+                </ul>
+            </div>
+        </div>
+        <div ng-show="vm.battle.state == 'gameover'" class="row text-center" >
+            <div ng-show="vm.battle.me.isWinner == true">
+                <h2>Victory, Matey!!!</h2>
+                <h3>You kicked {{vm.battle.opponent.name}} right in the barnacles!</h3>
+            </div>
+            <div ng-show="vm.battle.me.isWinner == false">
+                <h2>Defeat!</h2>
+                <h3>Shiver me timbers! Better luck next time, lad.</h3>
+            </div>
+        </div>
+        <div class="row text-center">
+            <ul class="list-group">
+                <li ng-repeat="action in vm.battle.attackLog track by $index | orderBy: -1*$index" class="list-group-item"
+                    ng-class="{'list-group-item-danger': action.type == 'attack'
+                        ,'list-group-item-success': action.type == 'heal'
+                        ,'list-group-item-info': action.type == 'info'}">{{action.description}}</li>
+            </ul>
+        </div>
+    </div>
+</div>

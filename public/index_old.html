@@ -1,13 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <% include ../partials/header.ejs %>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src="js/client.js"></script>
+    <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/main.css" />
+    <title>Black Market Battles</title>
 </head>
 
-<body>
-
-  <% include ../partials/nav.ejs %>
-
+<body ng-app="app">
+<nav class="navbar navbar-default navbar-static-top navbar-inverse">
+    <div class="container">
+        <ul class="nav navbar-nav">
+            <li class="active">
+                <a href="/"><span class="glyphicon glyphicon-home"></span> Home</a>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="navbar-right">
+                <a href="https://devcenter.heroku.com"><span class="glyphicon glyphicon-book"></span> Heroku Dev Center</a>
+            </li>
+        </ul>
+    </div>
+</nav>
 <div class="jumbotron text-center">
   <div class="container">
     <a href="/" class="lang-logo">

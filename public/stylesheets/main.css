@@ -1,27 +1,218 @@
-.jumbotron {
-  background: #532F8C;
-  color: white;
-  padding-bottom: 80px; }
-  .jumbotron .btn-primary {
-    background: #845ac7;
-    border-color: #845ac7; }
-    .jumbotron .btn-primary:hover {
-      background: #7646c1; }
-  .jumbotron p {
-    color: #d9ccee;
-    max-width: 75%;
-    margin: 1em auto 2em; }
-  .navbar + .jumbotron {
-    margin-top: -20px; }
-  .jumbotron .lang-logo {
-    display: block;
-    background: #B01302;
-    border-radius: 50%;
-    overflow: hidden;
-    width: 100px;
-    height: 100px;
-    margin: auto;
-    border: 2px solid white; }
-    .jumbotron .lang-logo img {
-      max-width: 100%; }
+.view-animate-container {
+  position:relative;
+  overflow:hidden;
+  min-height: 400px;
+}
+body {
+  /*font-family: 'Open Sans', sans-serif;*/
+}
+.view-animate {
+  padding:10px;
+}
 
+.view-animate.ng-enter, .view-animate.ng-leave {
+  -webkit-transition:all .5s ease;
+  transition:all .5s ease;
+
+  display:block;
+  width:100%;
+
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  padding:10px;
+}
+
+.view-animate.ng-enter {
+  left:100%;
+}
+.view-animate.ng-enter.ng-enter-active {
+  left:0;
+}
+.view-animate.ng-leave.ng-leave-active {
+  left:-100%;
+}
+
+body {
+  background: url('http://na.leagueoflegends.com/sites/default/files/upload/backgrounds/bw_lolweb_rotator_eventover.jpg') -200px 0px;
+  color: white;
+}
+.jumbotron {
+  margin-top: -20px;
+  color: white;
+  background: transparent;
+}
+.transparent {
+  background: transparent;
+}
+.lobbyRoom {
+  padding: 10px 5px;
+}
+.join-button {
+  padding-top: 15px;
+}
+.battle-container {
+  min-height: 500px;
+  min-width: 1100px;
+  opacity: .9;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.row-spacer {
+  height: 50px;
+}
+.player-container {
+  border: 2px solid #A2482E;
+  padding-bottom: 20px;
+}
+.player-name {
+  text-align: center;
+}
+.player-property-label {
+
+}
+.player-property {
+  text-align: right;
+}
+.participant-list-item {
+  height:80px;
+  width: 100%;
+  border-bottom: 2px solid #A2482E;
+  float:left;
+}
+.team-list-container {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+  border-left: 2px solid #A2482E;
+  border-right: 2px solid #A2482E;
+  border-top: 2px solid #A2482E;
+  float: left;
+}
+.champion-details {
+  width: 50%;
+  float: left;
+  padding-left: 5px;
+}
+.champion-icon {
+  padding: 0px 2px;
+  float: left;
+}
+  .champion-icon img {
+    width: 60px;
+    padding: 10px 0px;
+}
+.champion-spells {
+  padding: 10px 0px 10px 0px;
+  float: left;
+}
+.spell-icon {
+  padding-bottom: 2px;
+}
+  .spell-icon img {
+    width: 29px;
+    padding: 0px;
+  }
+.item-set-group {
+  float: left;
+}
+.item-set-row {
+  float: left;
+}
+.item-icon {
+  padding: 0px 2px 2px 0px;
+  float: left;
+}
+  .item-icon img {
+    width: 29px;
+    padding: 0px;
+  }
+.trinket-icon {
+  padding: 16px 0px;
+}
+  .trinket-icon img {
+    width: 29px;
+    padding: 0px;
+  }
+.champion-name-container {
+  padding: 30px 10px 30px 10px;
+  float: left;
+  height: 100%;
+}
+  .champion-name-container span {
+    font-size: 14px;
+  }
+.inventory-container {
+  padding: 9px 6px;
+  float: left;
+  width: 140px;
+  margin: 0px;
+  border-right: 2px solid #A2482E;
+  border-left: 2px solid #A2482E;
+}
+.rank-container {
+  float: right;
+}
+.player-rank {
+  float: right;
+  padding: 28px 10px;
+}
+.rank-label {
+  padding: 4px 0px;
+  font-size: 12px;
+}
+.rank-icon {
+  float: left;
+}
+.rank-icon img {
+  width: 29px;
+  padding: 0px;
+}
+.bg-black {
+  background-color: #141311;
+}
+.bg-white {
+  background-color: #FFFFFF;
+}
+.bg-orange {
+  background-color: #A2482E;
+}
+.bg-light-gray {
+  background-color: #878786;
+}
+.bg-dark-gray {
+  background-color: #686766;
+}
+.text-white {
+  color: #FFFFFF;
+}
+.text-orange {
+  color: #A2482E;
+}
+.text-light-gray {
+  color: #878786;
+}
+.text-dark-gray {
+  color: #686766;
+}
+.no-item {
+  width: 29px;
+  background-color: #878786
+}
+
+.bet-input {
+  width: 100px;
+  margin: auto;
+}
+.team-select {
+  text-align: center;
+}
+.team-select button {
+  padding: 0px 10px;
+}
+.attack-options {
+  margin: auto;
+  width: 400px;
+}

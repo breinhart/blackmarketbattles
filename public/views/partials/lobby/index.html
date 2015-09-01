@@ -1,0 +1,19 @@
+<div class="jumbotron">
+    <div class="container-fluid">
+        <h1>Ahoy, {{lobby.user.name}}</h1>
+        <p>Join a Battle or Create a New One!</p>
+        <div class="lobbyRoom row"
+             ng-repeat="room in lobby.rooms track by room.id">
+            <div class="col-md-4">
+                <h3 ng-bind="room.name"></h3>
+            </div>
+            <div class="col-md-1 join-button">
+                <a ng-click="lobby.joinRoom(room.id)" class="btn btn-default"><span class="glyphicon glyphicon-log-in"></span> Join</a>
+            </div>
+        </div>
+        <div class="create join-button">
+            <a class="btn btn-default btn-lg" ng-click="lobby.createRoom()"><span class="glyphicon glyphicon-plus"></span> Create a game</a>
+        </div>
+        <h5 ng-bind="lobby.errorText" class="text-danger" ng-show="lobby.errorText.length > 0"></h5>
+    </div>
+</div>

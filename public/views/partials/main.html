@@ -1,0 +1,24 @@
+<div class="jumbotron text-center">
+    <div class="container-fluid">
+        <h1>Welcome to Black Market Battles!</h1>
+        <br/>
+        <p>Welcome, ye scurvy dogs, t' Black Water Battles!  All hands on deck, as ye face off against an opponent for t' glory and booty ahead. </p>
+        <br/>
+        <div ng-switch="main.userExists">
+            <form ng-switch-when="false" class="form-inline">
+                <div class="form-gorup" ng-class="{'has-error': main.hasError}">
+                    <label for="username">Create a username to begin.</label>
+                    <input type="text" class="form-control"  placeholder="Gang Plank" id="username" name="username" ng-model="main.username" />
+                    <button ng-click="main.login()" class="btn btn-default">I am ready, Captain!</button>
+                </div>
+                <h5 ng-bind="main.errorText" class="text-danger" ng-show="main.hasError"></h5>
+            </form>
+            <div ng-switch-when="true">
+                <h2>Avast {{main.user.name}}, Booty awaits!</h2>
+
+                <button ng-click="main.login()" class="btn btn-default">I am ready, Captain!</button>
+                <button ng-click="main.logout()" class="btn btn-default">I am not {{main.user.name}}</button>
+            </div>
+        </div>
+    </div>
+</div>
